@@ -8,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// --- LÍNEA DE DEPURACIÓN TEMPORAL ---
+Console.WriteLine($"[DEBUG] Connection String: '{connectionString}'");
+// --- FIN DE LA LÍNEA DE DEPURACIÓN ---
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
